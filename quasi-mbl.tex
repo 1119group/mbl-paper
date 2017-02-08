@@ -12,6 +12,10 @@
 \renewcommand{\topmargin}{0.08in}
 \newcommand{\oim}[1]{{\color{red}$\clubsuit$ #1}}
 
+% Automatic numbering for sections 
+\let\oldsection\section
+\renewcommand{\section}[1]{\stepcounter{section}\oldsection{\Roman{section}. #1}}
+
 \bibliographystyle{apsrmp}
 
 \begin{document}
@@ -30,7 +34,7 @@
 \maketitle
 
 
-\section{I.  Introduction}
+\section{ Introduction}
 
 WE NEED to rewrite  the introduction.   What is MBL,   what have been done.    What we are trying to address.
 
@@ -69,7 +73,7 @@ features as the random spin chains in these standard statistic measurements.
 
 
 
-\section{II.  Identifying the ergodic to many-body localized phase transition}
+\section{ Identifying the ergodic to many-body localized phase transition}
 
 We  study  the Heisenberg  spin-1/2 chain   
 with  the following Hamiltonian:
@@ -229,11 +233,24 @@ logrithmic growth.
 \end{figure} 
 
 
+\begin{figure}
+  \includegraphics[angle=-90,width=0.92\linewidth]{dispersion_plot.ps} \\
+  \caption{(Color online) For system sizes $L = 10-16$, we notice a crossing of $W$ at approximately $1.6$,
+    indicating a quantum phase change. As we can see, the dispersion of $<Sz>$ decays as $W$ increases and tend
+    to zero at larger values of $W$. We conclude that this corroborates our conclusion from the entropy plot
+  that the many-body system freezes and fails to thermalize with increasing disorder strength.}
+\end{figure}
+\begin{figure}
+  \includegraphics[angle=-90,width=0.92\linewidth]{entropy_plot.ps} \\
+  \caption{(Color online) For system sizes $L = 10-16$, we notice the bipartite entanglement entropy of the
+    many-body system decays as increasing $W$. We conclude from our plot that the entropy of a system described
+    by our model tends to zero at high disorder strength. We also notice that our graphs cross at around $W_c=1.6$,
+  indicating a quantum phase transition at that point.}
+\end{figure}
 
 
 
-
-\section{IV. Summary and discussion}
+\section{Summary and discussion}
 
 
                                  
