@@ -6,6 +6,7 @@
 \usepackage{color}
 \usepackage{subfigure}
 \usepackage{epstopdf}
+\usepackage{braket}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue]{hyperref}
 \usepackage{hyperref}
 
@@ -16,13 +17,17 @@
 \let\oldsection\section
 \renewcommand{\section}[1]{\stepcounter{section}\oldsection{\Roman{section}. #1}}
 
+% Define the trace operator
+\DeclareMathOperator{\tr}{Tr}
+
 \bibliographystyle{apsrmp}
 
 \begin{document}
 
 \title{Many-Body Localization in Spin Chain System with Quasi-Periodic Potential}
 \author{} 
-\affiliation{Department of Physics and Astronomy, California State University, Northridge, California 91330, USA}
+\affiliation{Department of Physics and Astronomy, California State University,
+Northridge, California 91330, USA}
 
 
 \begin{abstract} 
@@ -75,104 +80,87 @@ features as the random spin chains in these standard statistic measurements.
 
 \section{Identifying the ergodic to many-body localized phase transition}
 
-We  study  the Heisenberg  spin-1/2 chain   
-with  the following Hamiltonian:
-\begin{equation}
- H =  \sum_{i=1}^{N-1} \vec{S}_i \cdot \vec{S}_{i+1}
-  + \sum_{i} hcos(c2\pi i+\phi) S_i^z,\nonumber
-% H=\sum_{i\in [1,L]} {\bf S}_i \cdot {\bf  S}_{i+1} -h_iS_i^z, \label{eq:H} \ee
-\end{equation}
-where the nearest neighbor  
- coupling  $J=1$  sets   the 
-energy scale  and we use open boundary for a  better convergence  in DMRG.
-The field  is distributed according to the cos functions and 
-$h$ as the strength of  random fields.
-All the results are obtained near  the center of the energy spectrum.
+We study the quasi-periodic Aubry-Andre system with the following Hamiltonian:
+\begin{equation*}
+  H =  J\sum_{i=1}^{N-1} \vec{S}_i \cdot \vec{S}_{i+1} +
+  W\sum_{i}^{N} \cos(c2\pi i+\phi) S_i^z \text{,}
+\end{equation*}
+where $J=1$ is the nearest neighbor coupling which sets the energy scale. The quasi-
+periodic field is defined by the cosine function and is scaled by $W$, the disorder
+strength. Also, we use open boundary conditions for better convergence in DMRG. All
+the results are obtained near the center of the energy spectrum.
 
 
-We  perform Lanczos ED calculations     to obtain  energy eigenstates around a fixed value
-$E$ determined by the target  energy density $\varepsilon$ for  systems with the number of sites
-$N=12-20$  in the total $S_z=0$ sector.
-Specifically, for each disorder configuration, we first calculate the
-ground state energy  $E_0$ and the maximum energy $E_\text{max}$, which are  used to define the target
-energy density $\varepsilon = (E-E_0)/(E_{max} -E_0)$.
-We perform more than $1000$ disorder configuration average for most  systems we studied.
-Physical quantities\cite{luitz2015}  including the bipartite entanglement entropy,  energy level statistics and
-bipartite  fluctuation of the subsystem magnetization are obtained and averaged over
-  disorder configurations and sometimes also averaged over  30 energy eigenstates with energies closest to the given
-energy density $\varepsilon$ as detailed below.
+We perform ED calculations using the Lanczos algorithm to obtain energy eigenstates
+around a fixed value $E$ determined by the target energy density $\varepsilon$ for
+systems with the number of sites $N=12-20$ in the $\braket{S_z}_{\text{tot}}=0$ sector.
+Specifically, for each disorder configuration, we first calculate the ground state
+energy $E_0$ and the maximum energy $E_\text{max}$, which are then used to define the
+target energy density $\varepsilon = (E-E_0)/(E_\text{max} -E_0)$. We performed more
+than $1000$ disorder configuration averages for most systems we studied. Physical
+quantities\cite{luitz2015} including bipartite entanglement entropy, energy level
+statistics and bipartite fluctuation of the subsystem magnetization are obtained and
+averaged over the disorder configurations, sometimes also over 30 energy eigenstates
+with energies closest to the given energy density $\varepsilon$, as detailed below.
 
 
-Here we put these figures about the transition and  add the discussions  for the transition.
-
-
-The bipartite entanglement entropy has been extensively used as an effective tool  to
-characterize  quantum phases for such an  interacting system\cite{nandkishore2015, luitz2015, kjall2014}
- We compute the Von Neumann entanglement entropy of the ladder system  from all eigenvalues of the reduced density matrix
-$\rho_A$ as
- $S=- {\rm Tr} \rho_A \ln \rho_A$,
- by partitioning the system in  the middle
-along the vertical direction.
-For an interacting  system with weak disorder,
-the entanglement entropies of   higher energy eigenstates are  expected to follow the
- volume law and these states are ergodic satisfying  the ETH\cite{nandkishore2015,altman2015}.
-This is in contrast to the behavior of the  ground state,  where
- the entanglement entropy follows the area law (with possibly up to the logarithmic correction
-depending on if there are gapless excitations)\cite{grover2014}.
-By varying the disorder strength  $h$,  one can detect the possible quantum phase transition from the  behavior of the
-entanglement entropy\cite{kjall2014, luitz2015}.
-As shown in  Fig. 1(a), we plot the  ratio of  entanglement entropy over the number of system sites  $S/L$
-for  different systems  from
-$L=10$ to $16$  at the energy density $\varepsilon =0.5$ as
-a function of random field strength $h$.
-On the  smaller $h$ side, we see the ratio $S/N$ increases with  system sizes $N$ and  approaches a constant  indicating the volume law growth of  $S$.
-With varying $h$,  all data points approximately cross each other around  a critical value  $h_c 2.0\pm 0.3$.
-On the  larger $h$ side,  $S/N$ approaches zero
-indicating the low entanglement and non-ergodic behavior  where  energy eigenstates are localized.
-
-
-
-
-We further use the  level statistics analysis from the random matrix theory\cite{atas2013,oganesyan2007}
-  to probe the localization-delocalization characteristics
-of  energy  eigenstates.
-In the delocalized  regime, the level-spacing  distribution
-is described by the   Gaussian orthogonal ensemble (GOE) statistics, which
-represents extended levels with level-repulsion  between them because
-of the overlap of  energy eigenstates in real space.
-In the localized regime, the level-spacing distribution  is
-determined by Poisson statistics as  wave-functions
-close in energy are exponentially localized with no
-level repulsion between them\cite{mehta1991}.
-In the energy spectrum analysis\cite{luitz2015},
-we define the energy gap $\delta_n=E_n-E_{n-1}$ as the energy difference between the $n$-th and $(n-1)$-th eigenstates,
-then the adjacent gap ratio can be defined as
-$r_n=min(\delta_n, \delta_{n+1})/max(\delta_n, \delta_{n+1})$.
-We  average the gap ratio $r=<r_n>$  over  states near the spectrum center
-at $\varepsilon=0.5$ for 30 eigenstates and 1000 random disorder configurations
-for each given disorder  strength $h$.   As shown in Fig. 1(b),   we see that at the small
-$h$ side, $r$ approaches  the Gaussian  orthogonal ensemble  value (0.5307) representing delocalized states, while at stronger
-$h$ side,  $r$ reaches the Poisson value $(2ln2-1\simeq 0.3863)$ for larger systems representing the level statistics of   localized states.
-All curves cross around the  critical value $h_c \sim 2.0$.  
-
-
-
-
-
-
+%Here we put these figures about the transition and add the discussions for the transition.
 
 \begin{figure}[b]
-% \includegraphics[angle=-90,width=3.5in]{fig16c.ps}\\
- \includegraphics[angle=-90, origin=c,  width=3.4in]{newfig1a.ps}\\
-\vspace{-0.6in}
- \includegraphics[angle=-90,width=3.1in]{newfig1b.ps}\\
-\vspace{0.1in}
-\caption{(Color online) (a) The entropy $S(t)$ as a function of time $t$ for weaker quasi-potential
-$h=0.5-2$ for system with $L=16$ sites.   In the logrithmic plot,  we see that $S(t)$ grows powerlawly on $t$.
-(b) $S(t)$ for larger $h$.  Here we see a logrithmic time dependence.
- }
+  \includegraphics[angle=-90, origin=c,  width=3.4in]{newfig1a.ps}\\
+  \vspace{-0.6in}
+  \includegraphics[angle=-90,width=3.1in]{newfig1b.ps}\\
+  \vspace{0.1in}
+  \caption{(Color online) (a) The entropy $S(t)$ as a function of time $t$ for weaker
+    quasi-potential $h=0.5-2$ for systems with $L=16$ sites. In the logrithmic plot,
+    we see that $S(t)$ grows with the power law with respect to $t$.
+    (b) $S(t)$ for larger $h$. Here we see a logrithmic time dependence.
+  }
 \label{fig1}
 \end{figure}
+
+The bipartite entanglement entropy has been extensively used as an effective tool 
+to characterize quantum phases for such an interacting system\cite{nandkishore2015,
+luitz2015, kjall2014}. We compute the Von Neumann entanglement entropy, $S = -\tr\rho_A
+\ln\rho_A$, using the reduced density matrix $\rho_A$ formed over the first half of
+the chain. For an interacting system with weak disorder, the entanglement entropies
+of higher energy eigenstates follow the volume law and these states are ergodic,
+satisfying the ETH\cite{nandkishore2015, altman2015}. This is in contrast to the
+behavior of the ground state, where the entanglement entropy follows the area law
+(possibly up to the logarithmic correction depending on if there are gapless excitations)
+\cite{grover2014}.
+By varying the disorder strength $W$, one can extrapolate the possible quantum phase
+transition from the behavior of the entanglement entropy\cite{kjall2014, luitz2015}.
+As shown in Fig. 1(a), we plotted the ratio of entanglement entropy per sites $S/L$ for
+systems with chain lengths varying from $L=10$ to $16$ at the energy density
+$\varepsilon =0.5$ as a function of the random field strength $W$. For smaller $W$
+values, we see the ratio $S/N$ increases with system size $N$ and saturates at a
+constant, indicating volume law growth of $S$. As we vary $W$, all data plots
+cross each other approximately around a critical value $W_c = 2.0\pm 0.3$. For $W$ values
+higher than $W_c$, we notice the plots become progressively flatter, indicating that
+in this regime, the system is having an increasingly low entanglement and exhibits
+non-ergodic behavior.
+
+
+We further make use of level statistics analysis from the random matrix theory
+\cite{atas2013,oganesyan2007} to probe the localization-delocalization characteristics
+of energy eigenstates. In the delocalized regime, the level-spacing distribution
+is described by the Gaussian orthogonal ensemble (GOE) statistics, which represents
+extended levels with level-repulsion between them because of the overlap of
+energy eigenstates in real space. In the localized regime, the level-spacing
+distribution is determined by Poisson statistics as wave-functions close in energy
+are exponentially localized with no level repulsion between them\cite{mehta1991}.
+In the energy spectrum analysis\cite{luitz2015}, we define the energy gap
+$\delta_n=E_n-E_{n-1}$ as the energy difference between the $n$-th and $(n-1)$-th
+eigenstates, then the adjacent gap ratio can be defined as
+$r_n=\min(\delta_n, \delta_{n+1})/\max(\delta_n, \delta_{n+1})$.
+We average the gap ratio $r=\braket{r_n}$ over states near the spectrum center at
+$\varepsilon=0.5$ for 30 eigenstates and 1000 random disorder configurations
+for each given disorder strength $h$. As shown in Fig. 1(b), we see that at the small
+$h$ side, $r$ approaches the Gaussian orthogonal ensemble value (0.5307) representing
+delocalized states, while at stronger $h$ side, $r$ reaches the Poisson value
+$(2ln2-1\simeq 0.3863)$ for larger systems representing the level statistics of
+localized states. All curves cross around the critical value $h_c \sim 2.0$. 
 
 
 {\bf Time-Evolution of quantum state}
@@ -180,37 +168,42 @@ $h=0.5-2$ for system with $L=16$ sites.   In the logrithmic plot,  we see that $
 
 
 \begin{figure}[b]
- \includegraphics[angle=-90,width=3.4in]{newfig1c.ps}\\
-\vspace{-0.10in}
- \includegraphics[angle=-90,width=3.4in]{newfig1d.ps}\\
-\hspace{0.0in}
-\vspace{-0.24in}
- \includegraphics[angle=-90,width=3.4in]{newfig1e.ps}\\
-\vspace{0.1in}
-\caption{(Color online) (a) For small $h=1$ and system sizes $L=12-20$,   we find that 
-all the $S(t)$ data fit into a nice straight line for $t=1\sim 50$ indicating the powerlaw growth of $S(t)$.
-At smaller $t<1$ side,  we see the initial expansion of the entropy  while at longer time  side, $S(t)$ saturates
-to be close to $\frac L 2 ln2$ in consistent with thermal entropy of the ergodic phase.
-(b) For $h=2$,  we see that for smaller $L$, $S(t)$ grows slower than the powerlaw.
-But for largest size $L=20$, we see $S(t)$ follows a straight line and becomes powerlaw vs. $t$.
-(c) In the log-normal plot, we find all $S(t)$ follows the straight line indicating the 
-logrithmic growth.
- }
+  \includegraphics[angle=-90,width=3.4in]{newfig1c.ps}\\
+  \vspace{-0.10in}
+  \includegraphics[angle=-90,width=3.4in]{newfig1d.ps}\\
+  \hspace{0.0in}
+  \vspace{-0.24in}
+  \includegraphics[angle=-90,width=3.4in]{newfig1e.ps}\\
+  \vspace{0.1in}
+  \caption{(Color online) (a) For small $W=1$ and system sizes $L=12-20$, we find
+    that all the $S(t)$ data fit into a nice straight line for $t=1\sim 50$ indicating
+    powerlaw growth of $S(t)$. When the elapsed time $t$ is less than $1$, we see the
+    initial expansion of the entropy. When $t$ becomes large, $S(t)$ approaches a
+    saturation value of $\frac L 2 \ln2$, consistent with the thermal entropy of the
+    ergodic phase.
+    (b) For $W=2$, we see that for smaller system sizes $L$, $S(t)$ grows slower
+    than the powerlaw. But for the largest size we have done, $L=20$, we see $S(t)$
+    follows a straight line and obeys powerlaw when plotted against $t$.
+    (c) In the log-linear plot, we find all $S(t)$ plots to be following the straight
+    line, indicating logrithmic growth.
+  }
 \label{fig1}
 \end{figure}
 
 \begin{figure}[b]
- \includegraphics[angle=-90,width=3.in]{newfig2a.ps}\\
-\vspace{-0.10in}
- \includegraphics[angle=-90,width=3.in]{newfig2b.ps}\\
-\hspace{0.0in}
-\vspace{-0.24in}
-\caption{(Color online) (a) Imbalance $I(t)$ for differnt $h=1-4$.   At small $h$,  we see a fast decay
-of the $I(t)$  for small $h=1$ and system sizes $L=12-20$.  For larger $h$,  $I(t)$ remains to be very large over
-a long time in consistent with MBL behavior where the local $S^z_i$ on each site is near conserved.    
-(b)  The spin glass ordering defined in eq. .  At small $h$,  spins are short range correlated and $\chi(t)$ decays
-to $1$ (coming from onsite contribution) while $\chi(t)$ remains near constant over a long time range for larger $h$.
- }
+  \includegraphics[angle=-90,width=3.in]{newfig2a.ps}\\
+  \vspace{-0.10in}
+  \includegraphics[angle=-90,width=3.in]{newfig2b.ps}\\
+  \hspace{0.0in}
+  \vspace{-0.24in}
+  \caption{(Color online) (a) Imbalance $I(t)$ for differnt $h=1-4$. At small $h$, 
+    we see a fast decay of the $I(t)$ for small $h=1$ and system sizes $L=12-20$. For
+    larger $h$, $I(t)$ remains to be very large over a long time in consistent with
+    MBL behavior where the local $S^z_i$ on each site is near conserved. (b) The
+    spin glass ordering defined in eq. . At small $h$, spins are short range correlated
+    and $\chi(t)$ decays to $1$ (coming from onsite contribution) while $\chi(t)$ remains
+    near constant over a long time range for larger $h$.
+  }
 \label{fig2}
 \end{figure}
 
