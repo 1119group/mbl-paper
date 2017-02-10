@@ -47,53 +47,60 @@ Northridge, California 91330, USA}
 
 \section{Introduction}
 
-WE NEED to rewrite  the introduction.   What is MBL,   what have been done.    What we are trying to address.
+The eigenstate thermalization hypothesis (ETH) describes how an isolated
+self-interacting quantum system can thermalize under its own internal dynamics
+in agreement with conventional equilibrium statistical mechanics. However, a
+subset of these systems fail to thermalize on any time scale due to disorder
+and are categorized under the phenomenon known as many-body localization (MBL).
+Experimental evidence(cite experimental stuff) of the MBL phase and a proof
+under the assumption of limited level attraction\cite{imbrie2014} has helped to
+drive recent interest on the subject.
+
+
+The existence of the ETH and MBL phases suggests a phase transition; however,
+pinpointing this transition is difficult since the thermal phase near the
+transition can appear to not thermalize on accessible time scales. Random
+disorder introduces rare Griffiths regions\cite{vosk_theory2014, potter2015trans, knap2015}
+which may have singular contributions in driving a phase transition, but there
+is still limited quantitative understanding about their effects and should be
+absent in a quasi-periodic potential. Numerical studies have focused on random
+disorder(citation:luitz, etc), but there need for studies on quasi-periodic
+disorder(are there any to cite?).
+%at the beginning stage\cite{oganesyan2007,pal2010,znidaric2008,canovi2011,cuevas2012,bauer2013,serbyn2014,kjall2014,vosk_theory2014,luca2013,iyer2013,pekker2014,johri2014,bardarson2012,andraschko2014,laumann2014,vasseur2015,hickey2014,nanduri2014,barlev2014,grover2014, luitz2015, serbyn2015,goold2015, baygan2015}.
+
+
+Larger size (with up to $N=22$ spins) numerical exact diagonalization (ED)
+studies\cite{luitz2015} of the 1D Heisenberg chain in a random field have
+demonstrated a continuous phase transition between a delocalized ergodic phase
+to an MBL phase based on extensive finite-size scaling analysis of different
+physical quantities including the entanglement entropy and the energy level
+statistics. The numerical linked cluster expansion calculations suggest a
+higher critical disorder strength for entering the MBL phase\cite{devakul2015}
+than that obtained by ED studies\cite{luitz2015}. Theoretical\cite{vosk_theory2014}
+and numerical studies of low frequency conductivity\cite{agarwal2015, knap2015}
+and energy spectra statistics\cite{serbyn2015} have suggested that there is an
+intermediate regime with sub-diffusive conductivity and (or) semi-Poisson level
+statistics between the ergodic and MBL phases. A consistent picture for
+understanding the dynamic phase transition in such a system is still absent.
 
 
 
-
-
-So far,   a lot of studies have been focusing on systems with random distributed
-disorders.
-%at the beginning
-%stage\cite{oganesyan2007,pal2010,znidaric2008,canovi2011,cuevas2012,bauer2013,serbyn2014,kjall2014,vosk_theory2014,luca2013,iyer2013,pekker2014,johri2014,bardarson2012,andraschko2014,laumann2014,vasseur2015,hickey2014,nanduri2014,barlev2014,grover2014,
-%luitz2015, serbyn2015,goold2015, baygan2015}.
-Larger sizes (with up to $N=22$ spins) numerical  exact diagonalization (ED)
-studies\cite{luitz2015}  of the 1D Heisenberg chain in a random field have
-demonstrated a continuous  phase transition between a delocalized ergodic  phase
-to an MBL  phase based on extensive finite-size scaling analysis of different
-physical quantities including the  entanglement entropy  and  the energy level
-statistics.  The numerical linked cluster expansion calculations suggest a
-higher critical disorder strength  for entering the MBL phase\cite{devakul2015}
-than that obtained by ED studies\cite{luitz2015}.
-Theoretical\cite{vosk_theory2014}  and numerical  studies of low frequency
-conductivity\cite{agarwal2015, knap2015} and energy spectra
-statistics\cite{serbyn2015} have suggested that there is an intermediate regime
-with sub-diffusive conductivity and (or)  semi-Poisson level statistics  between
-the ergodic and MBL phases.  A consistent picture for understanding the dynamic
-phase transition in such a system is still absent.  One of the  difficulties  is
-the presence of  rare Griffiths regions\cite{vosk_theory2014, potter2015trans,
-knap2015} which may have  singular contributions in  driving a  phase
-transition. However, so far there is still limited  quantitative understanding
-about  their effects.
-
-
-In this paper, we report  eigenstate and  time-dependent studies of a spin chain
-with a quasi-periodic potential.  First, we find a  quantum phase transition
-from the ergodic phase to the many-body localized phase based on entanglement
+In this paper, we report eigenstate and time-dependent studies of a spin chain
+with a quasi-periodic potential. First, we find a quantum phase transition from
+the ergodic phase to the many-body localized phase based on entanglement
 entropy and the ratio of the adjacent gaps similar to systems with random
-potentials. However, quasi-periodic systems are shown to be more efficient in
-localizing an interacting states with a smaller critical $h_c \sim 2$.     We
-perform time-evolution of a randomly selected  product state, and explore how
-its entanglement entropy evolves with time.  Similar to the random field model,
-we find both power-law  growth and the logarithmic growth of the entanglement
-entropy,  while these two  behaviors are separated at the previous identified
-critical point $h_c$ between ergodic and MBL phases.   Interestingly,  the MBL
-phase demonstrates quasi-periodic oscillations in time for shorter time.  Both
-the imbalance and the spin glass order survives to extremely long time scale as
-a signature result of the MBL phase.   Our results indicate that quasi-periodic
-systems share these common features as the random spin chains in these standard
-statistic measurements.
+potentials. However, quasi-periodic systems are shown to be more efficient at
+localizing interacting states with a smaller critical $h_c \sim 2$. We perform
+time-evolution of a randomly selected product state, and explore how its
+entanglement entropy evolves with time. Similar to the random field model, we
+find both power-law growth and the logarithmic growth of the entanglement
+entropy, while these two behaviors are separated at the previous identified
+critical point $h_c$ between ergodic and MBL phases. Interestingly, the MBL
+phase demonstrates quasi-periodic oscillations in time for shorter time
+(whichplot? Is this expected for finite size?). Both the imbalance and the spin
+glass order survives to extremely long time scale as a signature result of the
+MBL phase. Our results indicate that quasi-periodic systems share these common
+features as the random spin chains in these standard statistic measurements.
 
 
 
@@ -134,8 +141,9 @@ $\varepsilon$, as detailed below.
   \includegraphics[angle=-90,width=3.1in]{newfig1b.ps}\\
   \vspace{0.1in}
   \caption{(Color online) (a) The entropy $S(t)$ as a function of time $t$ for
-    weaker quasi-potential $h=0.5-2$ for systems with $L=16$ sites. In the
-    logrithmic plot, we see that $S(t)$ grows with the power law with respect to
+    weaker quasi-potential $h=0.5-2$ for systems with $L=16$ sites. In this
+    log-log plot, we see power-law growth of $S(t)$ w.r.t. $t$ which saturates
+    at $(L/2-1)ln(2)$ for sub-critical $h$.
     $t$.  (b) $S(t)$ for larger $h$. Here we see a logrithmic time dependence.
   }
 \label{fig1}
@@ -200,9 +208,9 @@ localized states. All curves cross around the critical value $h_c \sim 2.0$.
   \includegraphics[angle=-90,width=3.4in]{newfig1e.ps}\\
   \vspace{0.1in}
   \caption{(Color online) (a) For small $W=1$ and system sizes $L=12-20$, we
-    find that all the $S(t)$ data fit into a nice straight line for $t=1\sim 50$
-    indicating powerlaw growth of $S(t)$. When the elapsed time $t$ is less than
-    $1$, we see the initial expansion of the entropy. When $t$ becomes large,
+    find the $S(t)$ data fits into a nice straight line for $t=1\sim 50$
+    indicating power-law growth of $S(t)$. For $t<1$ we see the initial
+    expansion of the entropy. When $t$ becomes large,
     $S(t)$ approaches a saturation value of $\frac L 2 \ln2$, consistent with
     the thermal entropy of the ergodic phase.  (b) For $W=2$, we see that for
     smaller system sizes $L$, $S(t)$ grows slower than the powerlaw. But for the
