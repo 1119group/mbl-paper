@@ -1,29 +1,37 @@
 \documentclass[prl,aps,epsf,showpacs,twocolumn]{revtex4}
-\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext, newtxmath}
 \usepackage{graphicx}
 \usepackage{float}
-\usepackage{latexsym,amsmath,amssymb,bm,euscript}
+\usepackage{latexsym,amsmath,amssymb,bm,euscript,braket}
 \usepackage{color}
 \usepackage{subfigure}
 \usepackage{epstopdf}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue]{hyperref}
 \usepackage{hyperref}
 
-% Chktex ignores the following warnings:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FOR MAC'S PERSONAL USE WITH "chktex" %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % spaces after commands
 % chktex-file 1
 % spaces before '('
 % chktex-file 36
 
-%\renewcommand{\topmargin}{0.08in}
-\newcommand{\oim}[1]{{\color{red}$\clubsuit$ #1}}
-
-% Automatic numbering for sections 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Automatic numbering for sections %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \let\oldsection\section
 \renewcommand{\section}[1]{\stepcounter{section}\oldsection{\Roman{section}. #1}}
 
-% Define the trace operator
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define the trace operator %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareMathOperator{\tr}{Tr}
+
+% Only necessary for an older version of revtex.
+%\renewcommand{\topmargin}{0.08in}
+\newcommand{\oim}[1]{{\color{red}$\clubsuit$ #1}}
 
 \bibliographystyle{apsrmp}
 
@@ -34,7 +42,8 @@
 \title{Many-Body Localization in Spin Chain System with Quasi-Periodic Potential}
 \author{Mac Lee, Tom Look, S. P. Lim and D. N. Sheng}
 
-\affiliation{Department of Physics and Astronomy, California State University, Northridge, California 91330, USA}
+\affiliation{Department of Physics and Astronomy, California State University,
+Northridge, California 91330, USA}
 
 
 \begin{abstract} 
@@ -48,111 +57,124 @@
 
 \section{Introduction}
 
-The interplay of the random disorder and  many-body interaction  has attracted a
-lot of recent research
-activities\cite{basko2006,oganesyan2007,pal2010,znidaric2008,
-huse2013,nandkishore2015,altman2015,huse2014,nandkishore2014,
-pekker_hilbert2014}.  The many-body localized (MBL) quantum
-state\cite{nandkishore2015,altman2015,huse2014,nandkishore2014,
-pekker_hilbert2014} of matter is distinctly different from either the  Anderson
-localization in non-interacting systems or ergodic state for interacting systems
-with weaker disorder.  An ergodic state  follows the eigenstate thermalization
-hypothesis (ETH), which  describes how an isolated self-interacting quantum
-system can thermalize under its own internal dynamics in agreement with quantum
-statistical mechanics\cite{deutsch1991,srednicki1994,rigol2008}.  An MBL  state
-on the other hand  fails to thermalize even for its highly excited eigenstates
-on any time scale  resulting new statistics for such
-systems\cite{basko2006,oganesyan2007,pal2010,znidaric2008,
-huse2013,nandkishore2015,altman2015,huse2014,nandkishore2014,
-pekker_hilbert2014}.  Many remarkable properties of an MBL phase has been
-established\cite{nandkishore2015,altman2015,huse2013,
-  nandkishore2014,oganesyan2007,pal2010,znidaric2008, rigol2008,
-  serbyn2014,kwasigroch2014,yao2014,vasseur2015, huse2014,
-  serbyn2013,ros2015,chandran2014,grover2014,agarwal2015,
-  knap2015,luitz2015,devakul2015,torres2015,
-  canovi2011,cuevas2012,bauer2013,kjall2014,luca2013,iyer2013,pekker_hilbert2014,johri2014,bardarson2012,andraschko2014,laumann2014,hickey2014,nanduri2014,barlev2014,imbrie2014,groverf2014,ponte2015,
-huang2015,you2015,serbyn2015,singh2015,barlev2015,deng2015,chen2015} based on
-extensive theoretical studies.  The existence of the ergodic (thermal) phase and
-MBL phase suggest a dynamic quantum phase transition between
-them\cite{basko2006,pal2010,oganesyan2007,kjall2014,vosk_theory2014,potter2015trans,serbyn2015,agarwal2015,knap2015,lim2016,zhang2016,zhang2016a,yu2016,vedika2016,dumitrescu2017}.
+The interplay of the random disorder and many-body interaction has attracted a
+lot of recent research activities\cite{basko2006, oganesyan2007, pal2010,
+znidaric2008, huse2013, nandkishore2015, altman2015, huse2014, nandkishore2014,
+pekker_hilbert2014}.
+The many-body localized (MBL) quantum state\cite{nandkishore2015, altman2015,
+huse2014, nandkishore2014, pekker_hilbert2014} of matter is distinctly different
+from either the Anderson localization in non-interacting systems or ergodic
+state for interacting systems with weaker disorder.
+An ergodic state follows the Eigenstate Thermalization Hypothesis (ETH), which
+describes how an isolated self-interacting quantum system can thermalize under
+its own internal dynamics in agreement with quantum statistical
+mechanics\cite{deutsch1991, srednicki1994, rigol2008}.
+An MBL state on the other hand fails to thermalize even for its highly excited
+eigenstates on any time scale, resulting in new statistics for such
+systems\cite{basko2006, oganesyan2007, pal2010, znidaric2008, huse2013,
+  nandkishore2015, altman2015, huse2014, nandkishore2014, pekker_hilbert2014}.
+Many remarkable properties of an MBL phase has been
+established\cite{nandkishore2015, altman2015, huse2013, nandkishore2014,
+  oganesyan2007, pal2010, znidaric2008, rigol2008, serbyn2014, kwasigroch2014,
+  yao2014, vasseur2015, huse2014, serbyn2013, ros2015, chandran2014, grover2014,
+  agarwal2015, knap2015, luitz2015, devakul2015, torres2015, canovi2011,
+  cuevas2012, bauer2013, kjall2014, luca2013, iyer2013, pekker_hilbert2014,
+  johri2014, bardarson2012, andraschko2014, laumann2014, hickey2014,
+nanduri2014, barlev2014, imbrie2014, groverf2014, ponte2015, huang2015, you2015,
+serbyn2015, singh2015, barlev2015, deng2015, chen2015} based on extensive
+theoretical studies.
+The existence of the ergodic (thermal) phase and MBL phase suggests a dynamic
+quantum phase transition between them\cite{basko2006, pal2010, oganesyan2007,
+kjall2014, vosk_theory2014, potter2015trans, serbyn2015, agarwal2015, knap2015,
+lim2016, zhang2016, zhang2016a, yu2016, vedika2016, dumitrescu2017}.
 Random disorder introduces rare Griffiths regions
 %\cite{vosk_theory2014, potter2015trans, knap2015,luitz2015,lim2016} which may
 %have singular
 contributions in driving such a phase transition, but there is still limited
-quantitative understanding about their effects.  %%\cite{vedika2017}.  Most of
-numerical studies of the MBL transition have focused on random disorder models
-for spin chains\cite{pal2010,kjall2014,luitz2015,yu2016,vedika2016}, while very
-recently the dynamic quantum phase transition has been analyzed with a close
-comprison between the quasi-periodic and random disorder models, which point to
-the possibility of two universality classes for the quantum phase
-transition\cite{vedika2017,vedika2016}.
+quantitative understanding about their effects. %%\cite{vedika2017}.
+Most of Numerical studies of the MBL transition have focused on random disorder
+models for spin chains\cite{pal2010, kjall2014, luitz2015, yu2016, vedika2016},
+while very recently the dynamic quantum phase transition has been analyzed with
+a close comparison between the quasi-periodic and random disorder models, which
+point to the possibility of two universality classes for the quantum phase
+transition\cite{vedika2017, vedika2016}.
 
+The time evolution of the many-body states have been studied for spin chain
+systems with a randomly distributed field\cite{kjall2014,luitz2016time}, which
+can be used to address the dynamics of the thermal phase to MBL phase
+transition\cite{nandkishore2015,vosk_theory2014,potter2015}.
+After a global quantum quench, in the thermal phase, the entanglement entropy is
+observed to grow under the power law whereas in the MBL phase, it grows
+logarithmically, indicating local memory of the initial product state is
+retained for an extremely long time.
 
+In our paper, we discuss findings of our studies of eigenstates and
+time-dependent behaviors of this quasi-periodic spin chain system.
+Based on the entanglement entropy of eigenstates and the adjacent gap ratio of
+eigen-energies, we find the quantum phase transition point of our system to be
+similar to albeit lower than that of spin chains with random potentials,
+transitioning at $W_c \sim 2$, indicating quasi-periodic systems are more
+efficient at localizing.
+We also performed time-evolution of randomly selected product states and studied
+their entanglement entropy, imbalance and spin glass order.
+Similar to the random field model, we find both power-law and logarithmic growth
+of the entanglement entropy and that these two regimes are demarcated by
+$W_c$, the boundary between the ergodic and MBL phases.
+In addition to the general growth trends, we also notice pseudo-periodic
+oscillations in our entropy plots for small $t$'s.
+The imbalance and spin glass order also display markedly different behaviors in
+the two different phases under time evolution, albeit in a different manner from
+that of entanglement entropy.
+In the thermal phase, both imbalance and spin glass order decay to a saturation
+level rather rapidly; in the MBL phase, on the other hand, both imbalance and
+spin glass order hover around their respective initial values for extremely long
+times, indicating the system is frozen in place and does not follow descriptions
+of quantum statistical mechanics.
+These results show that quasi-periodic spin chains show qualitatively similar
+behaviors with random spin chains with these standard observables.
 
-The  time evolution of the many-body states have been studied for spin chain
-systems with random distributed field\cite{kjall2014,luitz2016time}, which can
-be used to address the dynamics of the thermal phase to MBL phase
-transition\cite{nandkishore2015,vosk_theory2014,potter2015}.  After a global
-quantum quench, the entanglement entropy is observed to grow power-lawly for the
-thermal state, and  logrithmically  for the MBL state where  the local memory of
-an initial product state  remains at infinite time.  
+\section{Model and identify the ergodic to many-body localized phase transition}
 
+We study the Heisenberg spin-1/2 chain with the following Hamiltonian:
+\begin{equation*}
+  H = J\sum_{i=1}^{N-1} \mathbf{S}_i \cdot \mathbf{S}_{i+1}
+  + \sum_{i}^{N} W\cos(2\pi c i+\phi) S_i^z \text{.}
+\end{equation*}
+In this Hamiltonian, $\mathbf{S}_i$ is the total spin operator for site $i$ and
+$J$ is the nearest neighbor coupling constant.
+For the second term of the Hamiltonian which describes the coupling between the
+$z$-directional field and our sites, $W$ is the scaling factor of the field
+strength and $\phi$ is the phase factor of the cosine function that governs the
+field.
+Both parameters are adjusted as we study their effects on the behavior of the
+system.
+The remaining parameter, $c$, is an irrational number which, for the course of
+our study, is fixed at $\sqrt{2} - 1$.
 
-In this paper, we report  eigenstate and  time-dependent studies of a spin chain
-with a quasi-periodic potential.  First, we find a  dynamic quantum phase
-transition from the ergodic phase to the MBL phase based on entanglement entropy
-and the ratio of the adjacent gaps similar to systems with random potentials.
-However, quasi-periodic systems are shown to be more efficient in localizing an
-interacting states with a smaller critical $h_c \sim 2$.     We perform
-time-evolution of a randomly selected  product state, and explore how its
-entanglement entropy evolves with time.  Similar to the random field model, we
-find both power-law  growth and the logarithmic growth of the entanglement
-entropy,  while these two  behaviors are separated at the transition point
-between ergodic and MBL phases.   Interestingly,  the MBL phase demonstrates
-quasi-periodic oscillations for shorter time.  Both the imbalance and the spin
-glass order survives to extremely long time scale as signatures  of the MBL
-phase.   Our results indicate that quasi-periodic systems share these common
-features as the random spin chains in these standard statistic measurements. 
-
-
-\section{Model and identifying the ergodic to many-body localized phase transition}
-
-
-We  study  the Heisenberg  spin-1/2 chain   
-with  the following Hamiltonian:
-\begin{equation}
- H =  \sum_{i=1}^{N-1} {\bf S}_i \cdot {\bf S}_{i+1}
-  + \sum_{i} W\cos(2\pi c i+\phi) S_i^z,\nonumber
-% H=\sum_{i\in [1,L]} {\bf S}_i \cdot {\bf  S}_{i+1} -h_iS_i^z, \label{eq:H} \ee
-\end{equation}
-where ${\bf S_i}$ is the spin operator on the site $i$,  the nearest neighbor
-coupling  $J=1$.  $\phi$ is a random phase chosen to the same for all sites and
-$c$ is an irrational wave number,  which we choose to be $c=\sqrt 2$.  $W$ is
-the strength of  the quasi-periodic fields.  This model is similar to the one
-studied recently in Ref.\cite{vedika2016}. Here,   we will focus on the
-time-evolution of the states, which have not been studied for such systems with
-quasi-periodic potential.  We use open boundary, which allows larger window for
-observing the time evolution of physical quantities\cite{luitz2016time} before
-they saturate due to finite-size effect.  All the results are obtained for
-highly excited states near  the center of the energy spectrum.
-
-
-
+This model is similar to the one studied recently in Ref.\cite{vedika2016}.
+In this paper, however, we will place our focus on the time-evolution of the
+states, which have not been thoroughly studied for systems with quasi-periodic
+potentials.
+For all our calculations, we used open-boundary condition since it allows a
+larger window for observing the time evolution of physical
+quantities\cite{luitz2016time} before they saturate due to finite-size effects.
+All the results are obtained with highly excited states with energies near the
+center of the spectrum.
 
 \begin{figure}
-  \includegraphics[angle=-90,width=0.82\linewidth]{entropy_plot.ps} \\
-  \includegraphics[angle=-90,width=0.82\linewidth]{dispersion_plot.ps} \\
+  \includegraphics[angle=-90,width=0.9\linewidth]{entropy_plot.ps} \\
+  \includegraphics[angle=-90,width=0.9\linewidth]{dispersion_plot.ps} \\
   \caption{(Color online) (a) For system sizes $L = 10-16$, we notice a crossing
     of $W$ at approximately $1.6$, indicating a quantum phase change. As we can
-    see, the dispersion of $<Sz>$ decays as $W$ increases and tend to zero at
-    larger values of $W$. We conclude that this corroborates our conclusion from
-    the entropy plot that the many-body system freezes and fails to thermalize
-    with increasing disorder strength.  (b) For system sizes $L = 10-16$, we
-    notice the bipartite entanglement entropy of the many-body system decays as
-    increasing $W$. We conclude from our plot that the entropy of a system
-    described by our model tends to zero at high disorder strength. We also
-    notice that our graphs cross at around $W_c=1.6$, indicating a quantum phase
-    transition at that point.
+    see, the dispersion of $\langle Sz \rangle$ decays as $W$ increases and
+    tends to zero at larger values of $W$. We conclude that this corroborates
+    our conclusion from the entropy plot that the many-body system freezes and
+    fails to thermalize with increasing disorder strength.  (b) For system sizes
+    $L = 10-16$, we notice the bipartite entanglement entropy of the many-body
+    system decays as $W$ increases. We conclude from our plot that the entropy
+    of a system described by our model tends to zero at high disorder strength.
+    We also notice that our graphs cross at around $W_c=1.6$, indicating a
+    quantum phase transition at that point.
   }
 \label{fig1}
 \end{figure}
@@ -287,7 +309,7 @@ In the energy spectrum analysis\cite{luitz2015}, we define the adjacent  energy
 gap $\delta_n=E_n-E_{n-1}$ as the energy difference between the $n$-th and
 $(n-1)$-th eigenstates, then the adjacent gap ratio can be defined as
 $r_n=\min(\delta_n, \delta_{n+1})/\max(\delta_n, \delta_{n+1})$.  We  average the
-gap ratio $r=<r_n>$  over $30-200$  states near the spectrum center at
+gap ratio $r=\langle r_n\rangle$  over $30-200$  states near the spectrum center at
 $\varepsilon=0.5$   and more than 1000 random  potential configurations for each
 given disorder  strength $W$.   As shown in Fig. 1(c),   we see that at the
 small $W$ side, $r$ approaches  the Gaussian  orthogonal ensemble  value
@@ -307,17 +329,18 @@ systems\cite{vedika2016}.
 
 
 
-{\bf Time-Evolution of quantum state}
+\subsection{Time-Evolution of quantum state}
 
 We study the quantum dynamics of the quasi-periodic systems after a global
-quantum quench.  Here,  we start from a product state $|\Psi(0)=|\sigma_1,
-\sigma_2, . . . , \sigma_L>$  at the time $t=0$ after the quench, where
-$\sigma_i=\pm$ represents  the spin-z component $\pm 1/2$ at site $i$.  The
-state at time $t$ can be obtained as $|\Psi(t)> = e^{-iHt}|\psi(0)>=e^{-iH\Delta
-t}|\psi(t-\Delta t)>$ (with setting $\hbar=1$).  We calculate the time evolution
-of an initial  state  based on  a projection of the Hamiltonian to the Krylov
-space spanned by  {$|\Psi_0>$, $H|i\Psi_0>$, \ldots, $H^n|\Psi_0>$  using the
-Lanczos algorithm by calculating all eigenstates in this space to obtain the
+quantum quench.  Here,  we start from a product state
+$\ket{\Psi(0)}=\ket{\sigma_1, \sigma_2, \ldots , \sigma_L}$  at the time $t=0$
+after the quench, where $\sigma_i=\pm$ represents  the spin-z component $\pm
+1/2$ at site $i$.  The state at time $t$ can be obtained as $\ket{\Psi(t)} =
+e^{-iHt}\ket{\psi(0)}=e^{-iH\Delta t}\ket{\psi(t-\Delta t)}$ (with setting $\hbar=1$).
+We calculate the time evolution of an initial  state  based on  a projection of
+the Hamiltonian to the Krylov space spanned by
+$\ket{\Psi_0}$, $H\ket{i\Psi_0}$, \ldots, $H^n\ket{\Psi_0}$  using the Lanczos
+algorithm by calculating all eigenstates in this space to obtain the
 time-evolution operator\cite{luitz2015}.  Using a reasonalble small time step
 $\delta t \sim 0.2/J$ allows high accurate results with a small $n=30-60$.
 
@@ -355,7 +378,7 @@ Now we address the time evolution of the spin correlations.  As we start from
 the product state $|\Psi(0)>$ where the spin-z on each site is  $\pm 1/2$  while
 the total $S_z$ of all sites are zero. We define the following time correlators
 for spin-z  as $I(t)=\frac 4  L \sum_{j=1}^L
-<\Psi(0)|S_j^z(0)S_j^z(t)|\Psi(0)>$, which detects the  total imbalance of
+\braket{\Psi(0)|S_j^z(0)S_j^z(t)|\Psi(0)}$, which detects the  total imbalance of
 spin-z. As shown in Fig.4(a),  we find a systematic changes of the properties of
 the $I(t)$ as $W$ is varied.   For smaller $W=1$,  we see that the long time
 behavior of the imbalance $I(t)$ is dominanted by the powerlaw decay
@@ -372,7 +395,7 @@ For comparison,  we also study the spin glass order  in the MBL phase.  The
 spin-flip  from the Heisenberg term will create the domain walls.  If the
 domain walls  are confined together, a spin-glass order can develop.  We define
 the spin glass order parameter $ \chi^{SG}=\frac 1 L \sum_{i,j=1}^L
-<\Psi(t)|S_i^zS_j^z|\Psi(t)>^2$,  which can diverge with $L$ in the spin-glass
+\braket{\Psi(t)|S_i^zS_j^z|\Psi(t)}^2$,  which can diverge with $L$ in the spin-glass
 ordered phase.  As shown in Fig.4(b), we see very  similar behavior comparing to
 the $I(t)$.  For smaller $W=1-2$,  we see that $\chi(t)$ decreases with $t$ in
 powerlaw fasion, while it stays at large value at long time limit for larger
@@ -384,7 +407,7 @@ establishes the robust of the MBL phase.
 
 
 
-{\bf Summary and Discussions--} 
+\subsection{Summary and Discussions}
 
 
 
