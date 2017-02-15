@@ -166,7 +166,7 @@ center of the spectrum.
   \includegraphics[angle=-90,width=0.9\linewidth]{dispersion_plot.ps} \\
   \caption{(Color online) (a) For system sizes $L = 10-16$, we notice a crossing
     of $W$ at approximately $1.6$, indicating a quantum phase change. As we can
-    see, the dispersion of $\langle Sz \rangle$ decays as $W$ increases and
+    see, the dispersion of $\braket{Sz}$ decays as $W$ increases and
     tends to zero at larger values of $W$. We conclude that this corroborates
     our conclusion from the entropy plot that the many-body system freezes and
     fails to thermalize with increasing disorder strength.  (b) For system sizes
@@ -257,9 +257,8 @@ We  perform Lanczos exact diagonalization (ED) calculations   to obtain  energy
 eigenstates around  the energy $E$ at a target  energy  density $\varepsilon$
 for  systems with different  number of sites $L=10-16$  in the total $S_z=0$
 sector.  Specifically, for each disorder configuration, we first calculate the
-ground state energy  $E_0$ and the maximum energy $E_\text{max}$, which are
-used to define the target energy density $\varepsilon = (E-E_0)/(E_\text{max}
--E_0)$.
+ground state energy  $E_0$ and the maximum energy $E_\text{max}$, which are used
+to define the target energy density $\varepsilon = (E-E_0)/(E_\text{max} -E_0)$.
 %Physical quantities\cite{luitz2015}  including the bipartite entanglement
 %entropy,  energy level statistics and bipartite  fluctuation of the subsystem
 %magnetization are obtained and averaged over disorder configurations and
@@ -278,20 +277,19 @@ number of system sites  $S/L$ for  different systems  from $L=10$ to $16$  at
 the energy density $\varepsilon =0.5$ as a function of random field strength
 $W$.  On the  small $W$ side, we have seen an increase of the $S/L$ with $L$,
 which saturatue to the Page value ($S/L \sim 0.5\ln(2)$ for large $L$ limit)
-following the volume law of the ergodic phase.    On the  larger $W$ side,
-$S/L$ approaches zero indicating the area law  entanglement and non-ergodic
-behavior  where the MBL state is realized.  With varying $W$,  all data points
+following the volume law of the ergodic phase.    On the  larger $W$ side, $S/L$
+approaches zero indicating the area law  entanglement and non-ergodic behavior
+where the MBL state is realized.  With varying $W$,  all data points
 approximately cross each other around  a critical value  $W_c \sim 1.6$.  We
 compare the entanglement entropy behavior with the  bipartite fluctuations $F$
 of the subsystem magnetization $S^z_A$~\cite{luitz2015,song2012}, which is
-defined as $F=\left\langle S^{z\,2}_A \right\rangle - \left\langle
-S^z_A \right\rangle^2$
-as shown  in Fig. 1(b).  We see that the $F/N$ increases on the  small  $W$
-side, while it becomes vanishing small on the larger $W$ side.  The $F/N$ curves
-for different $N$ approximately cross each other around the critical field
-strength $W_c=1.6$ in consistent with the behavior of the entanglement entropy.
-In fact, we see that there is an approximate proportional relations between $S$
-and $F$  for all $W$  region. 
+defined as $F=\braket{{S^{z}_A}^2} - \braket{S^z_A}^2$ as shown  in Fig. 1(b).
+We see that the $F/N$ increases on the  small  $W$ side, while it becomes
+vanishing small on the larger $W$ side.  The $F/N$ curves for different $N$
+approximately cross each other around the critical field strength $W_c=1.6$ in
+consistent with the behavior of the entanglement entropy.  In fact, we see that
+there is an approximate proportional relations between $S$ and $F$  for all $W$
+region. 
 
 
 
