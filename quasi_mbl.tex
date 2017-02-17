@@ -1,4 +1,4 @@
-\documentclass[prl,aps,epsf,showpacs,twocolumn]{revtex4}
+\documentclass[prl,aps,epsf,showpacs,twocolumn,letterpaper]{revtex4}
 \usepackage[T1]{fontenc}
 \usepackage{newtxtext, newtxmath}
 \usepackage{graphicx}
@@ -29,8 +29,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareMathOperator{\tr}{Tr}
 
-% Only necessary for an older version of revtex.
-%\renewcommand{\topmargin}{0.08in}
 \newcommand{\oim}[1]{{\color{red}$\clubsuit$ #1}}
 
 \bibliographystyle{apsrmp}
@@ -140,10 +138,10 @@ behaviors with random spin chains with these standard observables.
 
 
 We study the Heisenberg spin-1/2 chain with the following Hamiltonian:
-\begin{equation*}
+\[
   H = J\sum_{i=1}^{N-1} \mathbf{S}_i \cdot \mathbf{S}_{i+1}
   + \sum_{i}^{N} W\cos(2\pi c i+\phi) S_i^z \text{.}
-\end{equation*}
+\]
 In this Hamiltonian, $\mathbf{S}_i$ is the total spin operator for site $i$ and
 $J$ is the nearest neighbor coupling constant.
 For the second term of the Hamiltonian which describes the coupling between the
@@ -231,35 +229,28 @@ center of the spectrum.
   \includegraphics[angle=-90,width=3.in]{newfig2b.ps}\\
   \hspace{0.0in}
   \vspace{-0.in}
-  \caption{(Color online) (a) Imbalance $I(t)$ for differnt $h=1-4$.
-    At small $h$, we see a fast decay of the $I(t)$ for small $h=1$ and system
-    sizes $L=12-20$.
-    For larger $h$, $I(t)$ remains to be very large over a long time in
-    consistent with MBL behavior where the local $S^z_i$ on each site is near
-    conserved.
-    (b) The spin glass ordering defined in eq.
-    At small $h$, spins are short range correlated and $\chi(t)$ decays to $1$
-    (coming from onsite contribution) while $\chi(t)$ remains near constant over
-    a long time range for larger $h$.
+  \caption{(Color online) (a) Imbalance $I(t)$ for a $L=16$ system with $1 < W <
+    4$.
+    At small values of $W$, we notice the imbalance of the system decays
+    rapidly; however, when $W$ is increased beyond $W_c = 1.6$, we notice the
+    imbalance ceases decaying and remains at a certain level.
+    This is consistent with the MBL behavior where the initial values of the
+    local observables for each site $i$ is preserved.
+    (b) Spin glass order as defined in eq.\ref{eq:sgo}.
+    At small values of $W$, correlations between spins are short ranged and
+    $\chi(t)$ decays to $1$ over time; at large values of
+    $W$, $\chi(t)$ remains close to its initial value even at very long time,
+    further corroborating our assertion of a quantum phase transition.
   }
 \label{fig4}
 \end{figure}
 
 
-
 \begin{figure}[b]
   \includegraphics[angle=-90,width=0.92\linewidth]{newfig3a.ps} \\
   \includegraphics[angle=-90,width=0.92\linewidth]{newfig3b.ps} \\
-  \caption{(Color online) (a) For small $h=1$ and system sizes $L=12-20$,   we
-    find that all the $S(t)$ data fit into a nice straight line for $t=1\sim 50$
-    indicating the powerlaw growth of $S(t)$.  At smaller $t<1$ side,  we see
-    the initial expansion of the entropy  while at longer time  side, $S(t)$
-    saturates to be close to $\frac L 2 \ln2$ in consistent with thermal entropy
-    of the ergodic phase.  (b) For $h=2$,  we see that for smaller $L$, $S(t)$
-    grows slower than the powerlaw.  But for largest size $L=20$, we see $S(t)$
-    follows a straight line and becomes powerlaw vs. $t$.  (c) In the log-normal
-    plot, we find all $S(t)$ follows the straight line indicating the logrithmic
-    growth.
+  \caption{(Color online) (a)
+    \bf Needs to be written
   }
 \label{fig5}
 \end{figure} 
@@ -388,8 +379,12 @@ al\cite{luitz2015}.
 Now we address the time evolution of the spin correlations.  As we start from
 the product state $|\Psi(0)>$ where the spin-z on each site is  $\pm 1/2$  while
 the total $S_z$ of all sites are zero. We define the following time correlators
-for spin-z  as $I(t)=\frac 4  L \sum_{j=1}^L
-\braket{\Psi(0)|S_j^z(0)S_j^z(t)|\Psi(0)}$, which detects the  total imbalance of
+for spin-z  as 
+\begin{equation}
+  I(t)=\frac{4}{L} \sum_{j=1}^L \braket{\Psi(0)|S_j^z(0)S_j^z(t)|\Psi(0)}
+  \text{,} \label{eq:imb}
+\end{equation}
+which detects the  total imbalance of
 spin-z. As shown in Fig.4(a),  we find a systematic changes of the properties of
 the $I(t)$ as $W$ is varied.   For smaller $W=1$,  we see that the long time
 behavior of the imbalance $I(t)$ is dominanted by the powerlaw decay
@@ -405,8 +400,12 @@ vanishing decay exponent ($\alpha \sim 0$).
 For comparison,  we also study the spin glass order  in the MBL phase.  The
 spin-flip  from the Heisenberg term will create the domain walls.  If the
 domain walls  are confined together, a spin-glass order can develop.  We define
-the spin glass order parameter $ \chi^{SG}=\frac 1 L \sum_{i,j=1}^L
-\braket{\Psi(t)|S_i^zS_j^z|\Psi(t)}^2$,  which can diverge with $L$ in the spin-glass
+the spin glass order parameter 
+\begin{equation}
+  \chi^{SG}=\frac 1 L \sum_{i,j=1}^L \braket{\Psi(t)|S_i^zS_j^z|\Psi(t)}^2
+  \text{,} \label{eq:sgo}
+\end{equation}
+which can diverge with $L$ in the spin-glass
 ordered phase.  As shown in Fig.4(b), we see very  similar behavior comparing to
 the $I(t)$.  For smaller $W=1-2$,  we see that $\chi(t)$ decreases with $t$ in
 powerlaw fasion, while it stays at large value at long time limit for larger
