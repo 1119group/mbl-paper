@@ -37,8 +37,8 @@
 
 
 
-\title{Many-Body Localization in Spin Chain System with Quasi-Periodic Potential}
-\author{Mac Lee, Tom Look, S. P. Lim and D. N. Sheng}
+\title{Many-Body Localization in Spin Chain System with Quasi-Periodic Disorder}
+\author{Mac Lee, Thomas R. Look, S. P. Lim and D. N. Sheng}
 
 \affiliation{Department of Physics and Astronomy, California State University,
 Northridge, California 91330, USA}
@@ -55,83 +55,78 @@ Northridge, California 91330, USA}
 
 \section{Introduction}
 
-The interplay of the random disorder and many-body interaction has attracted a
-lot of recent research activities\cite{basko2006, oganesyan2007, pal2010,
-znidaric2008, huse2013, nandkishore2015, altman2015, huse2014, nandkishore2014,
-pekker_hilbert2014}.
-The many-body localized (MBL) quantum state\cite{nandkishore2015, altman2015,
-huse2014, nandkishore2014, pekker_hilbert2014} of matter is distinctly different
-from either the Anderson localization in non-interacting systems or ergodic
-state for interacting systems with weaker disorder.
-An ergodic state follows the Eigenstate Thermalization Hypothesis (ETH), which
-describes how an isolated self-interacting quantum system can thermalize under
-its own internal dynamics in agreement with quantum statistical
-mechanics\cite{deutsch1991, srednicki1994, rigol2008}.
-An MBL state on the other hand fails to thermalize even for its highly excited
-eigenstates on any time scale, resulting in new statistics for such
-systems\cite{basko2006, oganesyan2007, pal2010, znidaric2008, huse2013,
-  nandkishore2015, altman2015, huse2014, nandkishore2014, pekker_hilbert2014}.
-Many remarkable properties of an MBL phase has been
-established\cite{nandkishore2015, altman2015, huse2013, nandkishore2014,
-  oganesyan2007, pal2010, znidaric2008, rigol2008, serbyn2014, kwasigroch2014,
-  yao2014, vasseur2015, huse2014, serbyn2013, ros2015, chandran2014, grover2014,
-  agarwal2015, knap2015, luitz2015, devakul2015, torres2015, canovi2011,
-  cuevas2012, bauer2013, kjall2014, luca2013, iyer2013, pekker_hilbert2014,
-  johri2014, bardarson2012, andraschko2014, laumann2014, hickey2014,
-nanduri2014, barlev2014, imbrie2014, groverf2014, ponte2015, huang2015, you2015,
-serbyn2015, singh2015, barlev2015, deng2015, chen2015} based on extensive
-theoretical studies.
-The existence of the ergodic (thermal) phase and MBL phase suggests a dynamic
-quantum phase transition between them\cite{basko2006, pal2010, oganesyan2007,
-kjall2014, vosk_theory2014, potter2015trans, serbyn2015, agarwal2015, knap2015,
-lim2016, zhang2016, zhang2016a, yu2016, vedika2016, dumitrescu2017}.
-Random disorder introduces rare Griffiths regions
-%\cite{vosk_theory2014, potter2015trans, knap2015,luitz2015,lim2016} which may
-%have singular
-contributions in driving such a phase transition, but there is still limited
-quantitative understanding about their effects. %%\cite{vedika2017}.
-Most of Numerical studies of the MBL transition have focused on random disorder
-models for spin chains\cite{pal2010, kjall2014, luitz2015, yu2016, vedika2016},
-while very recently the dynamic quantum phase transition has been analyzed with
-a close comparison between the quasi-periodic and random disorder models, which
-point to the possibility of two universality classes for the quantum phase
-transition\cite{vedika2017, vedika2016}.
+The interplay of random disorder and many-body interactions has attracted a lot 
+of recent research activity\cite{basko2006, oganesyan2007, pal2010, 
+znidaric2008, huse2013, nandkishore2015, altman2015, huse2014, nandkishore2014, 
+pekker_hilbert2014}.  The many-body localized (MBL) quantum 
+phase\cite{nandkishore2015, altman2015, huse2014, nandkishore2014, 
+pekker_hilbert2014} of matter is distinctly different from both Anderson 
+localization in non-interacting systems and the ergodic (thermal) phase for 
+interacting systems with weaker disorder.  The ergodic phase follows the 
+eigenstate thermalization hypothesis (ETH) which describes how an isolated 
+self-interacting quantum system can thermalize under its own internal dynamics 
+in agreement with quantum statistical mechanics\cite{deutsch1991, 
+srednicki1994, rigol2008}.  A system in the MBL phase, on the other hand, fails 
+to thermalize even for its highly excited eigenstates on any time scale, 
+resulting in new statistics for such systems\cite{basko2006, oganesyan2007, 
+pal2010, znidaric2008, huse2013, nandkishore2015, altman2015, huse2014, 
+nandkishore2014, pekker_hilbert2014}.  Many remarkable properties of an MBL 
+phase have been established\cite{nandkishore2015, altman2015, huse2013, 
+nandkishore2014, oganesyan2007, pal2010, znidaric2008, rigol2008, serbyn2014, 
+kwasigroch2014, yao2014, vasseur2015, huse2014, serbyn2013, ros2015, 
+chandran2014, grover2014, agarwal2015, knap2015, luitz2015, devakul2015, 
+torres2015, canovi2011, cuevas2012, bauer2013, kjall2014, luca2013, iyer2013, 
+pekker_hilbert2014, johri2014, bardarson2012, andraschko2014, laumann2014, 
+hickey2014, nanduri2014, barlev2014, imbrie2014, groverf2014, ponte2015, 
+huang2015, you2015, serbyn2015, singh2015, barlev2015, deng2015, chen2015} 
+based on extensive theoretical studies.  The existence of both the ergodic and 
+MBL phase suggests a dynamic quantum phase transition between 
+them\cite{basko2006, pal2010, oganesyan2007, kjall2014, vosk_theory2014, 
+potter2015trans, serbyn2015, agarwal2015, knap2015, lim2016, zhang2016, 
+zhang2016a, yu2016, vedika2016, dumitrescu2017}.  Random disorder introduces 
+rare Griffiths regions\cite{vosk_theory2014, potter2015trans, 
+knap2015,luitz2015,lim2016} which may have singular contributions in driving 
+such a phase transition, but there is still limited quantitative understanding 
+about their effects\cite{vedika2017}.  Most numerical studies of the MBL 
+transition have focused on random disorder models for spin chains\cite{pal2010, 
+kjall2014, luitz2015, yu2016, vedika2016}, while very recently the dynamic 
+quantum phase transition has been analyzed with a close comparison between the 
+quasi-periodic and random disorder models, which point to the possibility of 
+two universality classes for the quantum phase transition\cite{vedika2017, 
+vedika2016}.
+
+Time evolution of many-body systems has been studied for spin-chains with a 
+randomly distributed field\cite{kjall2014,luitz2016time}, which can be used to 
+address the dynamics of the thermal to MBL phase 
+transition\cite{nandkishore2015,vosk_theory2014,potter2015}.  After a global 
+quantum quench, power-law growth of bipartite entanglement entropy is observed 
+for thermal states while logarithmic growth is observed for MBL states where 
+the local memory of an initial product state remains at infinite 
+time\cite{luitz2016time}.
 
 
-The time evolution of the many-body states have been studied for spin chain
-systems with a randomly distributed field\cite{kjall2014,luitz2016time}, which
-can be used to address the dynamics of the thermal phase to MBL phase
-transition\cite{nandkishore2015,vosk_theory2014,potter2015}.
-After a global quantum quench, in the thermal phase, the entanglement entropy is
-observed to grow under the power law whereas in the MBL phase, it grows
-logarithmically, indicating local memory of the initial product state is
-retained for an extremely long time.
-
-
-In our paper, we discuss findings of our studies of eigenstates and
-time-dependent behaviors of this quasi-periodic spin chain system.
-Based on the entanglement entropy of eigenstates and the adjacent gap ratio of
-eigen-energies, we find the quantum phase transition point of our system to be
-similar to albeit lower than that of spin chains with random potentials,
-transitioning at $W_c \sim 2$, indicating quasi-periodic systems are more
-efficient at localizing.
-We also performed time-evolution of randomly selected product states and studied
-their entanglement entropy, imbalance and spin glass order.
-Similar to the random field model, we find both power-law and logarithmic growth
-of the entanglement entropy and that these two regimes are demarcated by
-$W_c$, the boundary between the ergodic and MBL phases.
-In addition to the general growth trends, we also notice pseudo-periodic
-oscillations in our entropy plots for small $t$'s.
-The imbalance and spin glass order also display markedly different behaviors in
-the two different phases under time evolution, albeit in a different manner from
-that of entanglement entropy.
-In the thermal phase, both imbalance and spin glass order decay to a saturation
-level rather rapidly; in the MBL phase, on the other hand, both imbalance and
-spin glass order hover around their respective initial values for extremely long
-times, indicating the system is frozen in place and does not follow descriptions
-of quantum statistical mechanics.
-These results show that quasi-periodic spin chains show qualitatively similar
-behaviors with random spin chains with these standard observables.
+In this paper we report eigenstate and time-dependent studies of spin chains 
+with quasi-periodic disorder.  Through exact diagonalization (ED) studies, we 
+find a dynamic quantum phase transition from the ergodic phase to the MBL phase 
+that is similar to spin chains with random disorder.  However, systems with 
+quasi-periodic disorder appear to be more efficient at localizing which is 
+demonstrated by a smaller critical disorder, $W_c \sim 2$, compared to systems 
+with random disorder.  We also performed time-evolution of randomly selected 
+product states and studied their entanglement entropy, imbalance and spin glass 
+order. Similar to the random field model, we find both power-law and 
+logarithmic growth of the entanglement entropy and that these two regimes are 
+demarcated by $W_c$, the boundary between the ergodic and MBL phases.  In 
+addition to the general growth trends, we also notice pseudo-periodic 
+oscillations in our entropy plots for small $t$'s. The imbalance and spin glass 
+order also display markedly different behaviors in the two different phases 
+under time evolution, albeit in a different manner from that of entanglement 
+entropy. In the thermal phase, both imbalance and spin glass order decay to a 
+saturation level rather rapidly; in the MBL phase, on the other hand, both 
+imbalance and spin glass order hover around their respective initial values for 
+extremely long times, indicating the system is frozen in place and does not 
+follow descriptions of quantum statistical mechanics. These results show that 
+quasi-periodic spin chains show qualitatively similar behaviors with random 
+spin chains with these standard observables.
 
 
 \section{Model and identify the ergodic to many-body localized phase transition}
